@@ -17,7 +17,7 @@ const Footer = () => {
                             </Link>
                         </div>
                     </div>
-                    <div className="w-full px-4 sm:w-1/2 lg:w-3/12">
+                    <div className="w-full px-4 sm:w-1/2 lg:w-2/12">
                         <div className="mb-10 w-full">
                             <h4 className="mb-9 text-lg font-semibold text-dark">React</h4>
                             <ul>
@@ -26,13 +26,67 @@ const Footer = () => {
                                         to="/"
                                         className="mb-2 inline-block text-base leading-loose text-body-color hover:text-primary"
                                     >
-                                         @v18.1.0
+                                        React router dom
                                     </Link>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div className="w-full px-4 sm:w-1/2 lg:w-3/12">
+                    <div className="w-full px-4 sm:w-1/2 lg:w-2/12">
+                        <div className="mb-10 w-full">
+                            <h4 className="mb-9 text-lg font-semibold text-dark">Tailwindcss</h4>
+                            <ul>
+                                <li>
+                                    <Link
+                                        to="/"
+                                        className="mb-2 inline-block text-base leading-loose text-body-color hover:text-primary"
+                                    >
+                                        Postcss
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        to="/"
+                                        className="mb-2 inline-block text-base leading-loose text-body-color hover:text-primary"
+                                    >
+                                        Autoprefixer
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        to="/"
+                                        className="mb-2 inline-block text-base leading-loose text-body-color hover:text-primary"
+                                    >
+                                        Tailgrids
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="w-full px-4 sm:w-1/2 lg:w-2/12">
+                        <div className="mb-10 w-full">
+                            <h4 className="mb-9 text-lg font-semibold text-dark">Express</h4>
+                            <ul>
+                                <li>
+                                    <Link
+                                        to="/"
+                                        className="mb-2 inline-block text-base leading-loose text-body-color hover:text-primary"
+                                    >
+                                        Mysql2
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        to="/"
+                                        className="mb-2 inline-block text-base leading-loose text-body-color hover:text-primary"
+                                    >
+                                        Typeorm
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="w-full px-4 sm:w-1/2 lg:w-2/12">
                         <div className="mb-10 w-full">
                             <h4 className="mb-9 text-lg font-semibold text-dark">Typescript</h4>
                             <ul>
@@ -41,22 +95,23 @@ const Footer = () => {
                                         to="/"
                                         className="mb-2 inline-block text-base leading-loose text-body-color hover:text-primary"
                                     >
-                                        @v4.6.4
+                                        Version @v4.6.4
                                     </Link>
                                 </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="w-full px-4 sm:w-1/2 lg:w-3/12">
-                        <div className="mb-10 w-full">
-                            <h4 className="mb-9 text-lg font-semibold text-dark">Tailgrids</h4>
-                            <ul>
                                 <li>
                                     <Link
                                         to="/"
                                         className="mb-2 inline-block text-base leading-loose text-body-color hover:text-primary"
                                     >
-                                        @v3.0.24
+                                        Craco
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        to="/"
+                                        className="mb-2 inline-block text-base leading-loose text-body-color hover:text-primary"
+                                    >
+                                        Nodemon
                                     </Link>
                                 </li>
                             </ul>

@@ -11,26 +11,20 @@ const Home = () => {
                     <div className="-mx-4 flex flex-wrap items-center">
                         <div className="w-full px-4 lg:w-1/2">
                             <span className="mb-2 text-base font-semibold text-white">
-                                Find Your Next Dream App
+                                Primera aplicación creada en React
                             </span>
                             <h2 className="mb-6 text-3xl font-bold leading-tight text-white sm:mb-8 sm:text-[38px] lg:mb-0">
-                                Get started with <br className="hidden xs:block"/>
-                                our free trial
+                                Repositorio <br className="hidden xs:block"/>
+                                alojado en GitHub
                             </h2>
                         </div>
                         <div className="w-full px-4 lg:w-1/2">
                             <div className="flex flex-wrap lg:justify-end">
                                 <Link
-                                    to="/"
-                                    className="my-1 mr-4 inline-block rounded bg-white bg-opacity-[15%] py-4 px-6 text-base font-medium text-white transition hover:bg-opacity-100 hover:text-primary md:px-9 lg:px-6 xl:px-9"
-                                >
-                                    Get Pro Version
-                                </Link>
-                                <Link
-                                    to="/"
+                                    to="https://github.com/pedroriverove"
                                     className="my-1 inline-block rounded bg-[#13C296] py-4 px-6 text-base font-medium text-white transition hover:bg-opacity-90 md:px-9 lg:px-6 xl:px-9"
                                 >
-                                    Start Free Trial
+                                    Empezar
                                 </Link>
                             </div>
                         </div>
