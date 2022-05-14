@@ -1,7 +1,16 @@
 {
-  "name": "support-project",
+  "name": "support-project-front",
   "version": "0.1.0",
-  "private": true,
+  "keywords": [
+    "react",
+    "react-app",
+    "typescript",
+    "tailwind",
+    "tailwindcss",
+    "tailgrids"
+  ],
+  "author": "<pedro_rivero_321@hotmail.com> (https://pedroriverove.com/)",
+  "license": "ISC",
   "dependencies": {
     "@craco/craco": "^7.0.0-alpha.0",
     "@testing-library/jest-dom": "^5.16.4",

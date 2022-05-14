@@ -32,3 +32,7 @@ yarn-error.log*
 *.sw?
 
 !.vscode/*.code-snippets
+
+# lock for yarn and npm
+yarn.lock
+package-lock.json
