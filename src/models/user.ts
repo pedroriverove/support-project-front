@@ -1,5 +1,9 @@
 export interface User {
-    id: number;
-    todo: string;
-    isDone: boolean;
+
+    role_id: number,
+    username: string,
+    email: string,
+    fullName: string,
+    password: string,
+
 }
