@@ -2,7 +2,7 @@ import React from 'react'
 import logo from '@/assets/images/logo.svg';
 import { Link } from 'react-router-dom'
 
-const SignIn = () => {
+const SignInComponent = () => {
     return (
         <section className="bg-[#F4F7FF] py-20 lg:py-[120px]">
             <div className="container">
@@ -51,4 +51,4 @@ const SignIn = () => {
     )
 }
 
-export default SignIn
+export default SignInComponent

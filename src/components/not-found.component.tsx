@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NotFound = () => {
+const NotFoundComponent = () => {
     return (
         <section className="relative z-10 bg-primary py-[120px]">
             <div className="container">
@@ -43,4 +43,4 @@ const NotFound = () => {
     );
 }
 
-export default NotFound
+export default NotFoundComponent

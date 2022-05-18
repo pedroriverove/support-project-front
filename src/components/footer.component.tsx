@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '@/assets/images/logo.svg';
 import { Link } from 'react-router-dom';
 
-const Footer = () => {
+const FooterComponent = () => {
     return (
         <footer className="bg-white pt-20 pb-10 lg:pt-[120px] lg:pb-20">
             <div className="container">
@@ -123,4 +123,4 @@ const Footer = () => {
     )
 }
 
-export default Footer
+export default FooterComponent

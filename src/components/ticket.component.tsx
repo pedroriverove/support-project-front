@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Ticket = () => {
+const TicketComponent: React.FC = () => {
     const [showModal, setShowModal] = React.useState(false);
 
     return (
@@ -163,4 +163,4 @@ const Ticket = () => {
     )
 }
 
-export default Ticket
+export default TicketComponent

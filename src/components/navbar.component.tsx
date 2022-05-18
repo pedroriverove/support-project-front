@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '@/assets/images/logo.svg';
 import {Link} from "react-router-dom";
 
-const Navbar = () => {
+const NavbarComponent = () => {
     return (
         <header className="flex w-full items-center bg-white">
             <div className="container">
@@ -72,4 +72,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default NavbarComponent

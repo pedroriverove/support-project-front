@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const User = () => {
+const UserComponent = () => {
     return (
         <section className="bg-white py-20 lg:py-[120px]">
             <div className="container">
@@ -117,4 +117,4 @@ const User = () => {
     )
 }
 
-export default User
+export default UserComponent

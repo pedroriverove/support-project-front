@@ -1,4 +1,4 @@
-export interface User {
+export default interface UserModel {
 
     role_id: number,
     username: string,

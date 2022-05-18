@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-const Home = () => {
+const HomeComponent = () => {
     return (
         <section className="py-20 lg:py-[120px]">
             <div className="container">
@@ -35,4 +35,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default HomeComponent

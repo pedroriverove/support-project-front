@@ -1,4 +1,4 @@
-export default interface TicketInterface {
+export default interface TicketModel {
 
     creator_user_id: number,
     assigned_user_id?: number | null,
