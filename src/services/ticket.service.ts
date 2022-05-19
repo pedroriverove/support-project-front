@@ -1,26 +1,33 @@
 import http from '@/http-common';
-import TicketModel from "@/models/ticket.model";
+import TicketInterface from '@/interfaces/ticket.interface';
+import TicketFactory from '@/factories/ticket.factory';
 
-class TicketService {
-    getAll = () => {
-        return http.get<Array<TicketModel>>("/v1/tickets");
-    };
+const getAll = () => {
+    return http.get<Array<TicketInterface>>("/v1/tickets");
+};
 
-    get = (id: any) => {
-        return http.get<TicketModel>(`/v1/tickets/${id}`);
-    };
+const get = (id: number) => {
+    return http.get<TicketInterface>(`/v1/tickets/${id}`);
+};
 
-    create = (data: TicketModel) => {
-        return http.post<TicketModel>("/v1/tickets", data);
-    };
+const create = (data: TicketFactory) => {
+    return http.post<TicketFactory>("/v1/tickets", data);
+};
 
-    update = (id: any, data: TicketModel) => {
-        return http.put<any>(`/v1/tickets/${id}`, data);
-    };
+const update = (id: number, data: TicketFactory) => {
+    return http.put<any>(`/v1/tickets/${id}`, data);
+};
 
-    remove = (id: any) => {
-        return http.delete<any>(`/v1/tickets/${id}`);
-    };
-}
+const remove = (id: number) => {
+    return http.delete<any>(`/v1/tickets/${id}`);
+};
+
+const TicketService = {
+    getAll,
+    get,
+    create,
+    update,
+    remove
+};
 
 export default TicketService;

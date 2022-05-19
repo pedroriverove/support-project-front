@@ -1,9 +1,10 @@
-export default interface UserModel {
+export default interface UserInterface {
 
+    id: number,
     role_id: number,
     username: string,
     email: string,
-    fullName: string,
+    fullname: string,
     password: string,
 
 }

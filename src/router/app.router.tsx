@@ -1,9 +1,9 @@
-import HomeComponent from '@/components/home.component';
-import LayoutComponent from '@/components/layout.component';
-import NotFoundComponent from '@/components/not-found.component';
-import SignInComponent from '@/components/sign-in.component';
-import TicketComponent from '@/components/ticket.component';
-import UserComponent from '@/components/user.component';
+import HomeComponent from '@/components/common/home.component';
+import LayoutComponent from '@/components/common/layout.component';
+import NotFoundComponent from '@/components/common/not-found.component';
+import SignInComponent from '@/components/common/sign-in.component';
+import AdminTicketPageComponent from '@/components/admin/ticket.page.component';
+import AdminTicketAssignedComponent from '@/components/admin/ticket.assigned.component';
 import {
     Route,
     Routes
@@ -16,8 +16,8 @@ export function AppRouter(){
             <Routes>
                 <Route path='/' element={<LayoutComponent />} >
                     <Route index element={<HomeComponent />} />
-                    <Route path='/users' element={<UserComponent />} />
-                    <Route path='/tickets' element={<TicketComponent />} />
+                    <Route path='/tickets-admin' element={<AdminTicketPageComponent />} />
+                    <Route path='/tickets-assigned' element={<AdminTicketAssignedComponent />} />
                 </Route>
                 <Route path='/login' element={<SignInComponent />} />
                 <Route path='*' element={<NotFoundComponent />} />
