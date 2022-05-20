@@ -1,7 +1,81 @@
-import React from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
+import TicketFactory from '@/factories/ticket.factory';
+import TicketService from '@/services/ticket.service';
+import UserInterface from '@/interfaces/user.interface';
+import UserService from '@/services/user.service';
+import { useNavigate } from 'react-router-dom';
 
 const TicketEditComponent = (props: any) => {
-    const [showEdit, setShowEdit] = React.useState(false);
+    let navigate = useNavigate();
+
+    const [showEdit, setShowEdit] = useState<boolean>(false);
+    const [users, setUsers] = useState<Array<UserInterface>>([]);
+
+    useEffect(() => {
+        retrieveUsers();
+    }, []);
+
+    const retrieveUsers = () => {
+        UserService.getAll()
+            .then((response: any) => {
+                setUsers(response.data);
+                console.log(response.data);
+            })
+            .catch((e: Error) => {
+                console.log(e);
+            });
+    };
+
+    const initialTicketState = {
+        creator_user_id: null,
+        assigned_user_id: "",
+        status_id: null,
+        name: "",
+        description: "",
+        assignment_date: "",
+        resolution_date: "",
+    };
+
+    const [ticket, setTicket] = useState<TicketFactory>(initialTicketState);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [submitted, setSubmitted] = useState<boolean>(false);
+
+    const handleInputChange = (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        const {name, value} = event.target;
+        setTicket({...ticket, [name]: value});
+    };
+
+    const saveTicket = () => {
+        let data = {
+            creator_user_id: 1,
+            assigned_user_id: ticket.assigned_user_id,
+            status_id: 1,
+            name: ticket.name,
+            description: ticket.description,
+            assignment_date: "2022-05-19",
+            resolution_date: "2022-05-19"
+        };
+
+        TicketService.create(data)
+            .then((response: any) => {
+                setTicket({
+                    creator_user_id: response.data.creator_user_id,
+                    assigned_user_id: response.data.assigned_user_id,
+                    status_id: response.data.status_id,
+                    name: response.data.name,
+                    description: response.data.description,
+                    assignment_date: response.data.assignment_date,
+                    resolution_date: response.data.resolution_date,
+                });
+                setSubmitted(true);
+                setShowEdit(false);
+                navigate("/tickets");
+                console.log(response.data);
+            })
+            .catch((e: Error) => {
+                console.log(e);
+            });
+    };
 
     return (
         <div>
@@ -27,6 +101,31 @@ const TicketEditComponent = (props: any) => {
                         <div className="-mx-4 flex flex-wrap">
                             <div className="w-full px-4 md:w-1/1 lg:w-1/1">
                                 <div className="mb-12">
+                                    <label htmlFor="assigned_user_id"
+                                           className="mb-3 block text-base font-medium text-black">
+                                        Usuarios
+                                    </label>
+                                    <div className="relative">
+                                        <select
+                                            id="assigned_user_id"
+                                            name="assigned_user_id"
+                                            onChange={handleInputChange}
+                                            value={ticket.assigned_user_id}
+                                            className="w-full appearance-none rounded-lg border-[1.5px] border-form-stroke py-3 px-5 font-medium text-body-color outline-none transition focus:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"
+                                        >
+                                            <option value="">Seleccione una opción</option>
+                                            {users && users.map((user) => (
+                                                <option value={user.id}>{user.fullname}</option>
+                                            ))}
+                                        </select>
+                                        <span
+                                            className="absolute right-4 top-1/2 mt-[-2px] h-[10px] w-[10px] -translate-y-1/2 rotate-45 border-r-2 border-b-2 border-body-color">
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="w-full px-4 md:w-1/1 lg:w-1/1">
+                                <div className="mb-12">
                                     <label htmlFor="name"
                                            className="mb-3 block text-base font-medium text-black">
                                         Nombre del ticket
@@ -34,32 +133,12 @@ const TicketEditComponent = (props: any) => {
                                     <input
                                         id="name"
                                         name="name"
+                                        onChange={handleInputChange}
                                         placeholder="Nombre del ticket"
                                         type="text"
+                                        value={ticket.name}
                                         className="w-full rounded-lg border-[1.5px] border-form-stroke py-3 px-5 font-medium text-body-color placeholder-body-color outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"
                                     />
-                                </div>
-                            </div>
-                            <div className="w-full px-4 md:w-1/1 lg:w-1/1">
-                                <div className="mb-12">
-                                    <label htmlFor="selected-users"
-                                           className="mb-3 block text-base font-medium text-black">
-                                        Usuarios
-                                    </label>
-                                    <div className="relative">
-                                        <select
-                                            id="selected-users"
-                                            name="selected-users"
-                                            className="w-full appearance-none rounded-lg border-[1.5px] border-form-stroke py-3 px-5 font-medium text-body-color outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"
-                                        >
-                                            <option value="">Manuel López</option>
-                                            <option value="">José Gómez</option>
-                                            <option value="">Luis Pérez</option>
-                                        </select>
-                                        <span
-                                            className="absolute right-4 top-1/2 mt-[-2px] h-[10px] w-[10px] -translate-y-1/2 rotate-45 border-r-2 border-b-2 border-body-color">
-                                        </span>
-                                    </div>
                                 </div>
                             </div>
                             <div className="w-full px-4 md:w-1/1 lg:w-1/1">
@@ -71,8 +150,10 @@ const TicketEditComponent = (props: any) => {
                                     <input
                                         id="description"
                                         name="description"
-                                        placeholder="Nombre del ticket"
+                                        onChange={handleInputChange}
+                                        placeholder="Descripción"
                                         type="text"
+                                        value={ticket.description}
                                         className="w-full rounded-lg border-[1.5px] border-form-stroke py-3 px-5 font-medium text-body-color placeholder-body-color outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"
                                     />
                                 </div>
@@ -89,6 +170,7 @@ const TicketEditComponent = (props: any) => {
                             </div>
                             <div className="w-1/2 px-3">
                                 <button
+                                    onClick={saveTicket}
                                     className="block w-full rounded-lg border border-primary bg-primary p-3 text-center text-base font-medium text-white transition hover:bg-opacity-90"
                                 >
                                     Editar

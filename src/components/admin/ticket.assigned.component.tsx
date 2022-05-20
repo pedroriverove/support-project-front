@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import TicketService from '@/services/ticket.service';
 import TicketInterface from '@/interfaces/ticket.interface';
 

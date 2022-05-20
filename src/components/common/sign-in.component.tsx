@@ -8,13 +8,14 @@ const SignInComponent = () => {
             <div className="container">
                 <div className="-mx-4 flex flex-wrap">
                     <div className="w-full px-4">
-                        <div className="relative mx-auto max-w-[525px] overflow-hidden rounded-lg bg-white py-16 px-10 text-center sm:px-12 md:px-[60px]">
+                        <div
+                            className="relative mx-auto max-w-[525px] overflow-hidden rounded-lg bg-white py-16 px-10 text-center sm:px-12 md:px-[60px]">
                             <div className="mb-10 text-center md:mb-8">
                                 <Link
                                     to="/"
                                     className="mx-auto inline-block max-w-[160px]"
                                 >
-                                    <img src={logo} className="app-logo" alt="logo" />
+                                    <img src={logo} className="app-logo" alt="logo"/>
                                 </Link>
                             </div>
                             <form>

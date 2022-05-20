@@ -64,19 +64,19 @@ const TicketDetailComponent = (props: any) => {
                                     {ticket.name}
                                 </h2>
                                 <p className="mb-8 text-base text-body-color">
-                                <strong>Usuario:</strong> {ticket.userAssigned.fullname}
+                                    <strong>Usuario:</strong> {ticket.userAssigned.fullname}
                                 </p>
                                 <p className="mb-8 text-base text-body-color">
-                                <strong>Estatus:</strong> {ticket.status.name}
+                                    <strong>Estatus:</strong> {ticket.status.name}
                                 </p>
                                 <p className="mb-8 text-base text-body-color">
-                                <strong>Descripción:</strong> {ticket.description}
+                                    <strong>Descripción:</strong> {ticket.description}
                                 </p>
                                 <p className="mb-8 text-base text-body-color">
-                                <strong>Fecha asignación:</strong> {ticket.assignment_date}
+                                    <strong>Fecha asignación:</strong> {ticket.assignment_date}
                                 </p>
                                 <p className="mb-8 text-base text-body-color">
-                                <strong>Fecha resolucion:</strong> {ticket.resolution_date}
+                                    <strong>Fecha resolucion:</strong> {ticket.resolution_date}
                                 </p>
                             </div>
                         }

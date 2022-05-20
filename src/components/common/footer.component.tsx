@@ -13,7 +13,7 @@ const FooterComponent = () => {
                                 to="/"
                                 className="mb-6 inline-block max-w-[160px]"
                             >
-                                <img src={logo} className="app-logo" alt="logo" />
+                                <img src={logo} className="app-logo" alt="logo"/>
                             </Link>
                         </div>
                     </div>

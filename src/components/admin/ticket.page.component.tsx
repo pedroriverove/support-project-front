@@ -29,7 +29,7 @@ const TicketPageComponent = () => {
                 <div className="-mx-4 flex flex-wrap">
                     <div className="w-full px-4">
                         <div className="max-w-full overflow-x-auto">
-                            <TicketCreateComponent />;
+                            <TicketCreateComponent />
                             <table className="w-full table-auto">
                                 <thead>
                                 <tr className="bg-primary text-center">

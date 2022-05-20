@@ -6,9 +6,9 @@ import NavbarComponent from '@/components/common/navbar.component';
 const LayoutComponent = () => {
     return (
         <>
-            <NavbarComponent />
-            <Outlet />
-            <FooterComponent />
+            <NavbarComponent/>
+            <Outlet/>
+            <FooterComponent/>
         </>
     );
 };

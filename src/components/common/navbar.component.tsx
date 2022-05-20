@@ -9,7 +9,7 @@ const NavbarComponent = () => {
                 <div className="relative -mx-4 flex items-center justify-between">
                     <div className="w-60 max-w-full px-4">
                         <Link to="/" className="block w-full py-5">
-                            <img src={logo} className="navbar-logo" alt="logo" />
+                            <img src={logo} className="navbar-logo" alt="logo"/>
                         </Link>
                     </div>
                     <div className="flex w-full items-center justify-between px-4">
@@ -52,6 +52,14 @@ const NavbarComponent = () => {
                                             className="flex py-2 text-base font-medium text-dark hover:text-primary lg:ml-12 lg:inline-flex"
                                         >
                                             Tickets
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/tickets-assigned"
+                                            className="flex py-2 text-base font-medium text-dark hover:text-primary lg:ml-12 lg:inline-flex"
+                                        >
+                                            Tickets asignados
                                         </Link>
                                     </li>
                                 </ul>
