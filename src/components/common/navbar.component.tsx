@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState }  from 'react';
 import logo from '@/assets/images/logo.svg';
 import { Link } from 'react-router-dom';
 
 const NavbarComponent = () => {
+    const [navbarOpen, setNavbarOpen] = useState(false);
+
     return (
         <header className="flex w-full items-center bg-white">
             <div className="container">
@@ -16,18 +18,14 @@ const NavbarComponent = () => {
                         <div>
                             <button
                                 id="navbarToggler"
-                                className="absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
+                                onClick={() => setNavbarOpen(!navbarOpen)}
+                                className={"absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden" + (navbarOpen && " navbarTogglerActive")}
                             >
-                                <span className="relative my-[6px] block h-[2px] w-[30px] bg-body-color">
-                                </span>
-                                <span className="relative my-[6px] block h-[2px] w-[30px] bg-body-color">
-                                </span>
-                                <span className="relative my-[6px] block h-[2px] w-[30px] bg-body-color">
-                                </span>
+                                <i className="fas fa-bars"/>
                             </button>
                             <nav
                                 id="navbarCollapse"
-                                className="absolute right-4 top-full w-full max-w-[250px] rounded-lg bg-white py-5 px-6 shadow lg:static lg:block lg:w-full lg:max-w-full lg:shadow-none"
+                                className={"absolute right-4 top-full w-full max-w-[250px] rounded-lg bg-white py-5 px-6 shadow lg:static lg:block lg:w-full lg:max-w-full lg:shadow-none" + (!navbarOpen && " hidden")}
                             >
                                 <ul className="blcok lg:flex">
                                     <li>

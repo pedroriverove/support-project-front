@@ -8,8 +8,6 @@
 - npm i source-map-resolve
 - npm install @fortawesome/fontawesome-free
 - npm install axios
-- npm install uuid
-- npm install @types/uuid -D
 
 #### Comandos
 - npm start
