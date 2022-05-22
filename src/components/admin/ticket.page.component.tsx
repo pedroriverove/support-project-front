@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import TicketCreateComponent from '@/components/admin/ticket.create.component';
-import TicketDeleteComponent from "@/components/admin/ticket.delete.component";
+import TicketDeleteComponent from '@/components/admin/ticket.delete.component';
 import TicketDetailComponent from '@/components/admin/ticket.detail.component';
 import TicketEditComponent from '@/components/admin/ticket.edit.component';
 import TicketInterface from '@/interfaces/ticket.interface';
 import TicketService from '@/services/ticket.service';
+import Filter from '@/utils/filter';
 
 const TicketPageComponent = () => {
     const [tickets, setTickets] = useState<Array<TicketInterface>>([]);
@@ -57,7 +58,7 @@ const TicketPageComponent = () => {
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {tickets && tickets.map((ticket, index) => (
+                                {tickets && tickets.map((ticket) => (
                                     <tr>
                                         <td className="border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-center text-base font-medium text-dark">
                                             {ticket.userAssigned.fullname}
@@ -69,10 +70,10 @@ const TicketPageComponent = () => {
                                             {ticket.status.name}
                                         </td>
                                         <td className="border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium text-dark">
-                                            {ticket.assignment_date}
+                                            {Filter.formatDate(ticket.assignment_date, 'LLL')}
                                         </td>
                                         <td className="border-b border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-center text-base font-medium text-dark">
-                                            {ticket.resolution_date}
+                                            {Filter.formatDate(ticket.resolution_date, 'LLL')}
                                         </td>
                                         <td className="border-b border-r border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium text-dark">
                                             {ticket.status.name === 'Por resolver'

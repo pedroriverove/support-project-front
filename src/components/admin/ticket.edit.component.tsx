@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import TicketFactory from '@/factories/ticket.factory';
+import TicketInterface from '@/interfaces/ticket.interface';
 import TicketService from '@/services/ticket.service';
 import UserInterface from '@/interfaces/user.interface';
 import UserService from '@/services/user.service';
+import moment from 'moment';
 import { useForm } from 'react-hook-form';
-import TicketInterface from "@/interfaces/ticket.interface";
 
 const TicketEditComponent: React.FC<any> = (props) => {
     const [showEdit, setShowEdit] = useState<boolean>(false);
@@ -16,7 +17,7 @@ const TicketEditComponent: React.FC<any> = (props) => {
     }, []);
 
     const retrieveUsers = () => {
-        UserService.getAll()
+        UserService.getRole("dev")
             .then((response: any) => {
                 setUsers(response.data);
             })
@@ -51,7 +52,7 @@ const TicketEditComponent: React.FC<any> = (props) => {
             status_id: 1,
             name: data.name,
             description: data.description,
-            assignment_date: "2022-05-19",
+            assignment_date: moment().format(),
             resolution_date: null
         };
 
