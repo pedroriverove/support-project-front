@@ -13,7 +13,6 @@ const TicketAssignedComponent: React.FC = () => {
         TicketService.getAll()
             .then((response: any) => {
                 setTickets(response.data);
-                console.log(response.data);
             })
             .catch((e: Error) => {
                 console.log(e);

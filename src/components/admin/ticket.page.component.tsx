@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import TicketCreateComponent from '@/components/admin/ticket.create.component';
+import TicketDeleteComponent from "@/components/admin/ticket.delete.component";
 import TicketDetailComponent from '@/components/admin/ticket.detail.component';
 import TicketEditComponent from '@/components/admin/ticket.edit.component';
 import TicketInterface from '@/interfaces/ticket.interface';
@@ -16,7 +17,6 @@ const TicketPageComponent = () => {
         TicketService.getAll()
             .then((response: any) => {
                 setTickets(response.data);
-                console.log(response.data);
             })
             .catch((e: Error) => {
                 console.log(e);
@@ -29,7 +29,10 @@ const TicketPageComponent = () => {
                 <div className="-mx-4 flex flex-wrap">
                     <div className="w-full px-4">
                         <div className="max-w-full overflow-x-auto">
-                            <TicketCreateComponent />
+                            <TicketCreateComponent
+                                tickets={tickets}
+                                setTickets={setTickets}
+                            />
                             <table className="w-full table-auto">
                                 <thead>
                                 <tr className="bg-primary text-center">
@@ -46,7 +49,7 @@ const TicketPageComponent = () => {
                                         Fecha asignación
                                     </th>
                                     <th className="w-1/6 min-w-[160px] border-r border-transparent py-4 px-3 text-lg font-semibold text-white lg:py-7 lg:px-4">
-                                        Fecha resolucion
+                                        Fecha resolución
                                     </th>
                                     <th className="w-1/6 min-w-[160px] border-r border-transparent py-4 px-3 text-lg font-semibold text-white lg:py-7 lg:px-4">
                                         Gestionar
@@ -74,15 +77,33 @@ const TicketPageComponent = () => {
                                         <td className="border-b border-r border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium text-dark">
                                             {ticket.status.name === 'Por resolver'
                                                 ?
-                                                <TicketEditComponent
-                                                    key={ticket.id}
-                                                    ticketId={ticket.id}
-                                                />
+                                                <div className="mx-6 text-center md:text-left">
+                                                    <div className="grid grid-1 sm:grid-cols-6 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                                                        <div className="">
+                                                            <TicketEditComponent
+                                                                key={ticket.id}
+                                                                ticketId={ticket.id}
+                                                                tickets={tickets}
+                                                                setTickets={setTickets}
+                                                            />
+                                                        </div>
+                                                        <div className="">
+                                                            <TicketDeleteComponent
+                                                                key={ticket.id}
+                                                                ticketId={ticket.id}
+                                                                tickets={tickets}
+                                                                setTickets={setTickets}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 :
-                                                <TicketDetailComponent
-                                                    key={ticket.id}
-                                                    ticketId={ticket.id}
-                                                />
+                                                <div className="flex flex-wrap justify-center">
+                                                    <TicketDetailComponent
+                                                        key={ticket.id}
+                                                        ticketId={ticket.id}
+                                                    />
+                                                </div>
                                             }
                                         </td>
                                     </tr>

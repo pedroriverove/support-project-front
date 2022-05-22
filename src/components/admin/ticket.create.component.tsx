@@ -5,12 +5,12 @@ import UserInterface from '@/interfaces/user.interface';
 import UserService from '@/services/user.service';
 import { useForm } from 'react-hook-form';
 
-const TicketCreateComponent = () => {
+const TicketCreateComponent: React.FC<any> = (props) => {
     const [showCreate, setShowCreate] = useState<boolean>(false);
 
     const [users, setUsers] = useState<Array<UserInterface>>([]);
 
-    const {register, handleSubmit, formState: {errors}} = useForm();
+    const {register, handleSubmit, formState: {errors}, reset} = useForm();
 
     useEffect(() => {
         retrieveUsers();
@@ -20,33 +20,50 @@ const TicketCreateComponent = () => {
         UserService.getAll()
             .then((response: any) => {
                 setUsers(response.data);
-                console.log(response.data);
             })
             .catch((e: Error) => {
                 console.log(e);
             });
     };
 
-    const saveTicket = (data: any, event: any) => {
+    const saveTicket = (data: any) => {
         const ticket: TicketFactory = {
             creator_user_id: 1,
             assigned_user_id: data.assigned_user_id,
             status_id: 1,
             name: data.name,
             description: data.description,
-            assignment_date: "2022-05-19",
-            resolution_date: "2022-05-19"
+            assignment_date: "2022-05-22",
+            resolution_date: null
         };
 
         TicketService.create(ticket)
             .then((response: any) => {
-                console.log(response.data);
+                const items = {
+                    id: response.data.id,
+                    creator_user_id: response.data.creator_user_id,
+                    assigned_user_id: response.data.description,
+                    status_id: response.data.status_id,
+                    name: response.data.name,
+                    description: response.data.description,
+                    assignment_date: response.data.assignment_date,
+                    resolution_date: response.data.resolution_date,
+                    userCreator: response.data.userCreator,
+                    userAssigned: response.data.userAssigned,
+                    status: response.data.status
+                };
+
+                const auxTickets = [...props.tickets, items];
+
+                props.setTickets(auxTickets);
+
+                reset();
+
+                setShowCreate(false);
             })
             .catch((e: Error) => {
                 console.log(e);
             });
-
-        event.target.reset();
     };
 
     return (

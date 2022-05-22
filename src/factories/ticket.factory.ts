@@ -6,6 +6,6 @@ export default interface TicketFactory {
     name: string,
     description: string,
     assignment_date: string,
-    resolution_date: string,
+    resolution_date: string | null,
 
 }

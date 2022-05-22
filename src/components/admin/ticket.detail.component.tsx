@@ -5,32 +5,17 @@ import TicketService from '@/services/ticket.service';
 const TicketDetailComponent = (props: any) => {
     const [showDetail, setShowDetail] = React.useState(false);
 
-    const initialTicketState = {
-        id: 0,
-        creator_user_id: 0,
-        assigned_user_id: null,
-        status_id: 0,
-        name: "",
-        description: null,
-        assignment_date: null,
-        resolution_date: null,
-        userCreator: null,
-        userAssigned: null,
-        status: null,
-    };
-
-    const [ticket, setTicket] = useState<TicketInterface>(initialTicketState);
+    const [ticket, setTicket] = useState<TicketInterface>();
 
     useEffect(() => {
-        retrieveTickets()
+        retrieveTicket()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    const retrieveTickets = () => {
+    const retrieveTicket = () => {
         TicketService.get(props.ticketId)
             .then((response: any) => {
                 setTicket(response.data);
-                console.log(response.data);
             })
             .catch((e: Error) => {
                 console.log(e);
@@ -40,7 +25,7 @@ const TicketDetailComponent = (props: any) => {
     return (
         <div>
             <button
-                className="inline-flex items-center justify-center rounded-lg bg-primary py-2 px-4 text-center text-base font-normal text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
+                className="inline-flex items-center justify-center rounded-lg bg-primary py-2 px-2 text-center text-base font-normal text-white hover:bg-opacity-90 lg:px-2 xl:px-4"
                 type="button"
                 onClick={() => setShowDetail(true)}
             >
@@ -76,7 +61,7 @@ const TicketDetailComponent = (props: any) => {
                                     <strong>Fecha asignación:</strong> {ticket.assignment_date}
                                 </p>
                                 <p className="mb-8 text-base text-body-color">
-                                    <strong>Fecha resolucion:</strong> {ticket.resolution_date}
+                                    <strong>Fecha resolución:</strong> {ticket.resolution_date}
                                 </p>
                             </div>
                         }
