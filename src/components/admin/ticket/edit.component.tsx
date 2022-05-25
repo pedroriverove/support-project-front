@@ -7,7 +7,7 @@ import UserService from '@/services/user.service';
 import moment from 'moment';
 import { useForm } from 'react-hook-form';
 
-const TicketEditComponent: React.FC<any> = (props) => {
+const EditComponent: React.FC<any> = (props) => {
     const [showEdit, setShowEdit] = useState<boolean>(false);
 
     const [users, setUsers] = useState<Array<UserInterface>>([]);
@@ -203,4 +203,4 @@ const TicketEditComponent: React.FC<any> = (props) => {
     )
 }
 
-export default TicketEditComponent
+export default EditComponent

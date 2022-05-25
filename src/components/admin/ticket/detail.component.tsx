@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import TicketInterface from '@/interfaces/ticket.interface';
 import TicketService from '@/services/ticket.service';
 
-const TicketDetailComponent = (props: any) => {
+const DetailComponent = (props: any) => {
     const [showDetail, setShowDetail] = React.useState(false);
 
     const [ticket, setTicket] = useState<TicketInterface>();
@@ -78,4 +78,4 @@ const TicketDetailComponent = (props: any) => {
     )
 }
 
-export default TicketDetailComponent
+export default DetailComponent

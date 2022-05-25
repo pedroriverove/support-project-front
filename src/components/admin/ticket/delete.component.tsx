@@ -2,7 +2,7 @@ import React from 'react';
 import TicketService from '@/services/ticket.service';
 import TicketInterface from '@/interfaces/ticket.interface';
 
-const TicketDeleteComponent: React.FC<any> = (props) => {
+const DeleteComponent: React.FC<any> = (props) => {
     const [showDelete, setShowDelete] = React.useState(false);
 
     const deleteTicket = () => {
@@ -76,4 +76,4 @@ const TicketDeleteComponent: React.FC<any> = (props) => {
     )
 }
 
-export default TicketDeleteComponent
+export default DeleteComponent

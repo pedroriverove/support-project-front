@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import TicketCreateComponent from '@/components/admin/ticket.create.component';
-import TicketDeleteComponent from '@/components/admin/ticket.delete.component';
-import TicketDetailComponent from '@/components/admin/ticket.detail.component';
-import TicketEditComponent from '@/components/admin/ticket.edit.component';
+import CreateComponent from '@/components/admin/ticket/create.component';
+import DeleteComponent from '@/components/admin/ticket/delete.component';
+import DetailComponent from '@/components/admin/ticket/detail.component';
+import EditComponent from '@/components/admin/ticket/edit.component';
 import TicketInterface from '@/interfaces/ticket.interface';
 import TicketService from '@/services/ticket.service';
 import Filter from '@/utils/filter';
 
-const TicketPageComponent = () => {
+const PageComponent = () => {
     const [tickets, setTickets] = useState<Array<TicketInterface>>([]);
 
     useEffect(() => {
@@ -30,7 +30,7 @@ const TicketPageComponent = () => {
                 <div className="-mx-4 flex flex-wrap">
                     <div className="w-full px-4">
                         <div className="max-w-full overflow-x-auto">
-                            <TicketCreateComponent
+                            <CreateComponent
                                 tickets={tickets}
                                 setTickets={setTickets}
                             />
@@ -81,7 +81,7 @@ const TicketPageComponent = () => {
                                                 <div className="mx-6 text-center md:text-left">
                                                     <div className="grid grid-1 sm:grid-cols-6 md:grid-cols-2 lg:grid-cols-2 gap-8">
                                                         <div className="">
-                                                            <TicketEditComponent
+                                                            <EditComponent
                                                                 key={ticket.id}
                                                                 ticketId={ticket.id}
                                                                 tickets={tickets}
@@ -89,7 +89,7 @@ const TicketPageComponent = () => {
                                                             />
                                                         </div>
                                                         <div className="">
-                                                            <TicketDeleteComponent
+                                                            <DeleteComponent
                                                                 key={ticket.id}
                                                                 ticketId={ticket.id}
                                                                 tickets={tickets}
@@ -100,7 +100,7 @@ const TicketPageComponent = () => {
                                                 </div>
                                                 :
                                                 <div className="flex flex-wrap justify-center">
-                                                    <TicketDetailComponent
+                                                    <DetailComponent
                                                         key={ticket.id}
                                                         ticketId={ticket.id}
                                                     />
@@ -119,4 +119,4 @@ const TicketPageComponent = () => {
     )
 }
 
-export default TicketPageComponent
+export default PageComponent

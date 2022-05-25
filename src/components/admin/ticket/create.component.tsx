@@ -6,7 +6,7 @@ import UserService from '@/services/user.service';
 import moment from 'moment';
 import { useForm } from 'react-hook-form';
 
-const TicketCreateComponent: React.FC<any> = (props) => {
+const CreateComponent: React.FC<any> = (props) => {
     const [showCreate, setShowCreate] = useState<boolean>(false);
 
     const [users, setUsers] = useState<Array<UserInterface>>([]);
@@ -177,4 +177,4 @@ const TicketCreateComponent: React.FC<any> = (props) => {
     )
 }
 
-export default TicketCreateComponent
+export default CreateComponent
