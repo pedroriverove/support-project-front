@@ -96,7 +96,7 @@ const TicketEditComponent: React.FC<any> = (props) => {
     return (
         <div>
             <button
-                className="inline-flex items-center justify-center rounded-lg bg-danger py-2 px-2 text-center text-base font-normal text-white hover:bg-opacity-90 lg:px-2 xl:px-4"
+                className="inline-flex items-center justify-center rounded-lg bg-success py-2 px-2 text-center text-base font-normal text-white hover:bg-opacity-90 lg:px-2 xl:px-4"
                 type="button"
                 onClick={() => setShowEdit(true)}
             >

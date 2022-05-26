@@ -24,6 +24,8 @@ const TicketPageComponent = () => {
             });
     };
 
+    console.log('pedro', tickets)
+
     return (
         <section className="bg-white py-20 lg:py-[120px]">
             <div className="container">
@@ -110,6 +112,13 @@ const TicketPageComponent = () => {
                                         </td>
                                     </tr>
                                 ))}
+                                {tickets.length === 0 &&
+                                    <tr>
+                                        <td colSpan={6} className="border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-center text-base font-medium text-dark">
+                                            No se encontraron resultados.
+                                        </td>
+                                    </tr>
+                                }
                                 </tbody>
                             </table>
                         </div>
