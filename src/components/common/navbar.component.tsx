@@ -1,6 +1,6 @@
-import React, { useState }  from 'react';
+import React, {useState} from 'react';
 import logo from '@/assets/images/logo.svg';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const NavbarComponent = () => {
     const [navbarOpen, setNavbarOpen] = useState(false);

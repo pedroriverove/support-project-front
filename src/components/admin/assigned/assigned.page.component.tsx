@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import UserService from '@/services/user.service';
+import React, {useEffect, useState} from 'react';
 import AssignedInterface from '@/interfaces/assigned.interface';
+import UserService from '@/services/user.service';
 
-const PageComponent: React.FC = () => {
+const AssignedPageComponent: React.FC = () => {
     const [users, setUsers] = useState<Array<AssignedInterface>>([]);
 
     useEffect(() => {
@@ -10,7 +10,7 @@ const PageComponent: React.FC = () => {
     }, []);
 
     const retrieveUsers = () => {
-        UserService.getAssigned()
+        UserService.getAssignedUsers()
             .then((response: any) => {
                 setUsers(response.data);
             })
@@ -52,22 +52,22 @@ const PageComponent: React.FC = () => {
                                 {users && users.map((user) => (
                                     <tr>
                                         <td className="border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-center text-base font-medium text-dark">
-                                            { user.fullname }
+                                            {user.fullname}
                                         </td>
                                         <td className="border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium text-dark">
-                                            { user.countTicketsToBeSolved }
+                                            {user.countTicketsToBeSolved}
                                         </td>
                                         <td className="border-b border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-center text-base font-medium text-dark">
-                                            { user.countSolvedTickets }
+                                            {user.countSolvedTickets}
                                         </td>
                                         <td className="border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium text-dark">
-                                            { user.countRejectedTickets }
+                                            {user.countRejectedTickets}
                                         </td>
                                         <td className="border-b border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-center text-base font-medium text-dark">
-                                            { user.countCanceledTickets }
+                                            {user.countCanceledTickets}
                                         </td>
                                         <td className="border-b border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-center text-base font-medium text-dark">
-                                            { user.countTotalTickets }
+                                            {user.countTotalTickets}
                                         </td>
                                     </tr>
                                 ))}
@@ -81,4 +81,4 @@ const PageComponent: React.FC = () => {
     )
 }
 
-export default PageComponent
+export default AssignedPageComponent

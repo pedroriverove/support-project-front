@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import CreateComponent from '@/components/admin/ticket/create.component';
-import DeleteComponent from '@/components/admin/ticket/delete.component';
-import DetailComponent from '@/components/admin/ticket/detail.component';
-import EditComponent from '@/components/admin/ticket/edit.component';
+import React, {useEffect, useState} from 'react';
+import Filter from '@/utils/filter';
+import TicketAddComponent from '@/components/admin/ticket/ticket.add.component';
+import TicketDeleteComponent from '@/components/admin/ticket/ticket.delete.component';
+import TicketDetailComponent from '@/components/admin/ticket/ticket.detail.component';
+import TicketEditComponent from '@/components/admin/ticket/ticket.edit.component';
 import TicketInterface from '@/interfaces/ticket.interface';
 import TicketService from '@/services/ticket.service';
-import Filter from '@/utils/filter';
 
-const PageComponent = () => {
+const TicketPageComponent = () => {
     const [tickets, setTickets] = useState<Array<TicketInterface>>([]);
 
     useEffect(() => {
@@ -30,7 +30,7 @@ const PageComponent = () => {
                 <div className="-mx-4 flex flex-wrap">
                     <div className="w-full px-4">
                         <div className="max-w-full overflow-x-auto">
-                            <CreateComponent
+                            <TicketAddComponent
                                 tickets={tickets}
                                 setTickets={setTickets}
                             />
@@ -79,9 +79,10 @@ const PageComponent = () => {
                                             {ticket.status.name === 'Por resolver'
                                                 ?
                                                 <div className="mx-6 text-center md:text-left">
-                                                    <div className="grid grid-1 sm:grid-cols-6 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                                                    <div
+                                                        className="grid grid-1 sm:grid-cols-6 md:grid-cols-2 lg:grid-cols-2 gap-8">
                                                         <div className="">
-                                                            <EditComponent
+                                                            <TicketEditComponent
                                                                 key={ticket.id}
                                                                 ticketId={ticket.id}
                                                                 tickets={tickets}
@@ -89,7 +90,7 @@ const PageComponent = () => {
                                                             />
                                                         </div>
                                                         <div className="">
-                                                            <DeleteComponent
+                                                            <TicketDeleteComponent
                                                                 key={ticket.id}
                                                                 ticketId={ticket.id}
                                                                 tickets={tickets}
@@ -100,7 +101,7 @@ const PageComponent = () => {
                                                 </div>
                                                 :
                                                 <div className="flex flex-wrap justify-center">
-                                                    <DetailComponent
+                                                    <TicketDetailComponent
                                                         key={ticket.id}
                                                         ticketId={ticket.id}
                                                     />
@@ -119,4 +120,4 @@ const PageComponent = () => {
     )
 }
 
-export default PageComponent
+export default TicketPageComponent

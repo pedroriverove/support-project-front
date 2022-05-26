@@ -1,6 +1,6 @@
 import React from 'react'
 import logo from '@/assets/images/logo.svg';
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 const SignInComponent = () => {
     return (
@@ -42,7 +42,8 @@ const SignInComponent = () => {
                                 </div>
                             </form>
                             <p className="text-base text-[#adadad]">
-                                ¿Aún no tienes una cuenta? <Link to="/signup" className="text-primary hover:underline">Regístrate.</Link>
+                                ¿Aún no tienes una cuenta? <Link to="/signup"
+                                                                 className="text-primary hover:underline">Regístrate.</Link>
                             </p>
                         </div>
                     </div>

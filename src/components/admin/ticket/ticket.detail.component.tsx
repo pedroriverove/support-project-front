@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
+import Filter from '@/utils/filter';
 import TicketInterface from '@/interfaces/ticket.interface';
 import TicketService from '@/services/ticket.service';
 
-const DetailComponent = (props: any) => {
+const TicketDetailComponent = (props: any) => {
     const [showDetail, setShowDetail] = React.useState(false);
 
     const [ticket, setTicket] = useState<TicketInterface>();
@@ -39,7 +40,7 @@ const DetailComponent = (props: any) => {
                         className="w-full max-w-[570px] rounded-[20px] bg-white py-12 px-8 text-center md:py-[60px] md:px-[70px]"
                     >
                         <h3 className="pb-2 text-xl font-bold text-dark sm:text-2xl">
-                            Ver un ticket
+                            Ver ticket
                         </h3>
                         <span className="mx-auto mb-6 inline-block h-1 w-[90px] rounded bg-primary">
                         </span>
@@ -58,10 +59,12 @@ const DetailComponent = (props: any) => {
                                     <strong>Descripción:</strong> {ticket.description}
                                 </p>
                                 <p className="mb-8 text-base text-body-color">
-                                    <strong>Fecha asignación:</strong> {ticket.assignment_date}
+                                    <strong>Fecha
+                                        asignación:</strong> {Filter.formatDate(ticket.assignment_date, 'LLL')}
                                 </p>
                                 <p className="mb-8 text-base text-body-color">
-                                    <strong>Fecha resolución:</strong> {ticket.resolution_date}
+                                    <strong>Fecha
+                                        resolución:</strong> {Filter.formatDate(ticket.resolution_date, 'LLL')}
                                 </p>
                             </div>
                         }
@@ -78,4 +81,4 @@ const DetailComponent = (props: any) => {
     )
 }
 
-export default DetailComponent
+export default TicketDetailComponent

@@ -13,8 +13,8 @@
     }
 }
 
-@media (max-width: 640px){
-    .navbar-logo{
+@media (max-width: 640px) {
+    .navbar-logo {
         width: 20vmin;
     }
 }

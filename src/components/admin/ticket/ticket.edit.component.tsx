@@ -5,9 +5,9 @@ import TicketService from '@/services/ticket.service';
 import UserInterface from '@/interfaces/user.interface';
 import UserService from '@/services/user.service';
 import moment from 'moment';
-import { useForm } from 'react-hook-form';
+import {useForm} from 'react-hook-form';
 
-const EditComponent: React.FC<any> = (props) => {
+const TicketEditComponent: React.FC<any> = (props) => {
     const [showEdit, setShowEdit] = useState<boolean>(false);
 
     const [users, setUsers] = useState<Array<UserInterface>>([]);
@@ -17,7 +17,7 @@ const EditComponent: React.FC<any> = (props) => {
     }, []);
 
     const retrieveUsers = () => {
-        UserService.getRole("dev")
+        UserService.getUserRoles("dev")
             .then((response: any) => {
                 setUsers(response.data);
             })
@@ -27,7 +27,7 @@ const EditComponent: React.FC<any> = (props) => {
     };
 
     const {register, handleSubmit, formState: {errors}, reset} = useForm({
-        defaultValues: { assigned_user_id: "", name: "", description: "" },
+        defaultValues: {assigned_user_id: "", name: "", description: ""},
     });
 
     useEffect(() => {
@@ -138,9 +138,9 @@ const EditComponent: React.FC<any> = (props) => {
                                             <span
                                                 className="absolute right-4 top-1/2 mt-[-2px] h-[10px] w-[10px] -translate-y-1/2 rotate-45 border-r-2 border-b-2 border-body-color">
                                             </span>
-                                            {errors.assigned_user_id?.type === 'required' &&
-                                                <span className="text-danger"> Este campo es obligatorio</span>}
                                         </div>
+                                        {errors.assigned_user_id?.type === 'required' &&
+                                            <span className="text-danger"> Este campo es obligatorio</span>}
                                     </div>
                                 </div>
                                 <div className="w-full px-4 md:w-1/1 lg:w-1/1">
@@ -203,4 +203,4 @@ const EditComponent: React.FC<any> = (props) => {
     )
 }
 
-export default EditComponent
+export default TicketEditComponent
