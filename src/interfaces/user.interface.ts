@@ -6,5 +6,7 @@ export default interface UserInterface {
     email: string,
     fullname: string,
     password: string,
+    created_at?: string | null,
+    roles: any,
 
 }
