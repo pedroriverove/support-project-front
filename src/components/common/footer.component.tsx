@@ -137,7 +137,7 @@ const FooterComponent = () => {
                 <span>© {year} Copyright:</span>
                 <a
                     className="text-gray-600 font-semibold"
-                    href="https://tailwind-elements.com/"> pedro_rivero_321@hotmail.com</a>
+                    href="https://tailwind-elements.com/"> @pedroriverove</a>
             </div>
         </footer>
     )

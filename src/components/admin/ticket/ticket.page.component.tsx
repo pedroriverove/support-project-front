@@ -24,8 +24,6 @@ const TicketPageComponent = () => {
             });
     };
 
-    console.log('pedro', tickets)
-
     return (
         <section className="bg-white py-20 lg:py-[120px]">
             <div className="container">

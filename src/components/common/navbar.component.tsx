@@ -1,9 +1,16 @@
 import React, {useState} from 'react';
 import logo from '@/assets/images/logo.svg';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
 const NavbarComponent = () => {
+    let navigate = useNavigate();
+
     const [navbarOpen, setNavbarOpen] = useState(false);
+
+    const handlelogout = () => {
+        localStorage.removeItem("token");
+        navigate("/login");
+    };
 
     return (
         <header className="flex w-full items-center bg-white">
@@ -59,7 +66,15 @@ const NavbarComponent = () => {
                                     </li>
                                     <li>
                                         <Link
-                                            to="/tickets-assigned"
+                                            to="/assigned-users"
+                                            className="flex py-2 text-base font-medium text-dark hover:text-primary lg:ml-12 lg:inline-flex"
+                                        >
+                                            Usuarios asignados
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/assigned-tickets"
                                             className="flex py-2 text-base font-medium text-dark hover:text-primary lg:ml-12 lg:inline-flex"
                                         >
                                             Tickets asignados
@@ -69,12 +84,12 @@ const NavbarComponent = () => {
                             </nav>
                         </div>
                         <div className="hidden justify-end pr-16 sm:flex lg:pr-0">
-                            <Link
-                                to="/logout"
-                                className="py-3 px-7 text-base font-medium text-dark hover:text-primary"
+                            <button
+                                onClick={handlelogout}
+                                className="rounded-lg bg-primary py-3 px-7 text-base font-medium text-white hover:bg-opacity-90"
                             >
                                 Cerrar sesión
-                            </Link>
+                            </button>
                         </div>
                     </div>
                 </div>

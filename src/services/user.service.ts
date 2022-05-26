@@ -4,7 +4,6 @@ import UserFactory from "@/factories/user.factory";
 import UserInterface from '@/interfaces/user.interface';
 
 const create = (data: UserFactory) => {
-    console.log('pedro', data)
     return http.post<UserFactory>("/v1/users", data);
 };
 

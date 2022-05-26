@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import AssignedInterface from '@/interfaces/assigned.interface';
 import UserService from '@/services/user.service';
 
-const AssignedPageComponent: React.FC = () => {
+const AssignedUsersPageComponent: React.FC = () => {
     const [users, setUsers] = useState<Array<AssignedInterface>>([]);
 
     useEffect(() => {
@@ -88,4 +88,4 @@ const AssignedPageComponent: React.FC = () => {
     )
 }
 
-export default AssignedPageComponent
+export default AssignedUsersPageComponent

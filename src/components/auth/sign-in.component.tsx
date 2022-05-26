@@ -1,8 +1,34 @@
-import React from 'react'
+import React, {useState} from 'react'
+import AuthService from '@/services/auth.service';
+import LoginFactory from '@/factories/login.factory';
 import logo from '@/assets/images/logo.svg';
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom';
+import {useForm} from 'react-hook-form';
 
-const SignInComponent = () => {
+const SignInComponent: React.FC<any> = () => {
+    let navigate = useNavigate();
+
+    const {register, handleSubmit, formState: {errors}} = useForm();
+
+    const [validLogin, setValidLogin] = useState<Boolean>(false);
+
+    const handleLogin = (data: any) => {
+        const auth: LoginFactory = {
+            username: data.username,
+            password: data.password
+        };
+
+        AuthService.login(auth)
+            .then((response: any) => {
+                localStorage.setItem("token", response.data);
+                navigate("/");
+            })
+            .catch((e: Error) => {
+                setValidLogin(true);
+                console.log(e);
+            });
+    };
+
     return (
         <section className="bg-[#F4F7FF] py-20 lg:py-[120px]">
             <div className="container">
@@ -18,21 +44,32 @@ const SignInComponent = () => {
                                     <img src={logo} className="app-logo" alt="logo"/>
                                 </Link>
                             </div>
-                            <form>
+                            <form onSubmit={handleSubmit(handleLogin)}>
                                 <div className="mb-6">
                                     <input
+                                        placeholder="Usuario"
                                         type="text"
-                                        placeholder="Correo electrónico"
+                                        {...register("username", {required: true})}
                                         className="bordder-[#E9EDF4] w-full rounded-md border bg-[#FCFDFE] py-3 px-5 text-base text-body-color placeholder-[#ACB6BE] outline-none focus:border-primary focus-visible:shadow-none"
                                     />
+                                    {errors.username?.type === 'required' &&
+                                        <span className="text-danger"> Este campo es obligatorio</span>}
                                 </div>
                                 <div className="mb-6">
                                     <input
-                                        type="password"
                                         placeholder="Contraseña"
+                                        type="password"
+                                        {...register("password", {required: true})}
                                         className="bordder-[#E9EDF4] w-full rounded-md border bg-[#FCFDFE] py-3 px-5 text-base text-body-color placeholder-[#ACB6BE] outline-none focus:border-primary focus-visible:shadow-none"
                                     />
+                                    {errors.password?.type === 'required' &&
+                                        <span className="text-danger"> Este campo es obligatorio</span>}
                                 </div>
+                                {validLogin &&
+                                    <div className="mb-6">
+                                        <span className="text-danger"> Las credenciales introducidas son incorrectas.</span>
+                                    </div>
+                                }
                                 <div className="mb-10">
                                     <input
                                         type="submit"
