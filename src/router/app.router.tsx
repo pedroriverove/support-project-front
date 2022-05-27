@@ -5,6 +5,7 @@ import AssignedUsersPageComponent from '@/components/admin/assigned-users/assign
 import HomeComponent from '@/components/common/home.component';
 import LayoutComponent from '@/components/common/layout.component';
 import NotFoundComponent from '@/components/common/not-found.component';
+import ProfileComponent from "@/components/auth/profile.component";
 import SignInComponent from '@/components/auth/sign-in.component';
 import {Route, Routes} from 'react-router-dom';
 
@@ -17,6 +18,7 @@ export function AppRouter() {
                     <Route index element={<HomeComponent/>}/>
                     <Route path='/assigned-tickets' element={<AssignedTicketsPageComponent/>}/>
                     <Route path='/assigned-users' element={<AssignedUsersPageComponent/>}/>
+                    <Route path='/profile' element={<ProfileComponent/>}/>
                     <Route path='/tickets' element={<AdminTicketPageComponent/>}/>
                     <Route path='/users' element={<AdminUserPageComponent/>}/>
                 </Route>

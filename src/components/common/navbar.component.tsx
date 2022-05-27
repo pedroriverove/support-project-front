@@ -14,29 +14,30 @@ const NavbarComponent = () => {
         navigate("/login");
     };
 
-    const [user, setUser] = useState<UserInterface>();
+    const [currentUser, setCurrentUser] = useState<UserInterface>();
 
     useEffect(() => {
-        retrieveUser()
+        retrieveCurrentUser()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    const retrieveUser = () => {
+    const retrieveCurrentUser = () => {
         const userStr = localStorage.getItem("user");
-        let response: any = null;
+        let storage: any = null;
 
         if (userStr) {
-            response = JSON.parse(userStr);
+            storage = JSON.parse(userStr);
         }
 
-        if (response && response.user.id) {
-            const userID: number = response.user.id;
+        if (storage && storage.user.id) {
+            const userID: number = storage.user.id;
 
             AuthService.get(userID)
                 .then((response: any) => {
-                    setUser(response.data);
+                    setCurrentUser(response.data);
                 })
                 .catch((e: Error) => {
+                    navigate("/login");
                     console.log(e);
                 });
         }
@@ -69,7 +70,7 @@ const NavbarComponent = () => {
                                 id="navbarCollapse"
                                 className={"absolute right-4 top-full w-full max-w-[250px] rounded-lg bg-white py-5 px-6 shadow lg:static lg:block lg:w-full lg:max-w-full lg:shadow-none" + (!navbarOpen && " hidden")}
                             >
-                                {(typeof user !== 'undefined' && user.roles.name === "admin")
+                                {(typeof currentUser !== 'undefined' && currentUser.roles.name === "admin")
                                     ?
                                     <div>
                                         <ul className="blcok lg:flex">
@@ -105,6 +106,14 @@ const NavbarComponent = () => {
                                                     Usuarios asignados
                                                 </Link>
                                             </li>
+                                            <li>
+                                                <Link
+                                                    to="/profile"
+                                                    className="flex py-2 text-base font-medium text-dark hover:text-primary lg:ml-12 lg:inline-flex"
+                                                >
+                                                    Perfil
+                                                </Link>
+                                            </li>
                                         </ul>
                                     </div>
                                     :
@@ -124,6 +133,14 @@ const NavbarComponent = () => {
                                                     className="flex py-2 text-base font-medium text-dark hover:text-primary lg:ml-12 lg:inline-flex"
                                                 >
                                                     Tickets asignados
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link
+                                                    to="/profile"
+                                                    className="flex py-2 text-base font-medium text-dark hover:text-primary lg:ml-12 lg:inline-flex"
+                                                >
+                                                    Perfil
                                                 </Link>
                                             </li>
                                         </ul>
