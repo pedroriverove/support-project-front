@@ -1,10 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import TicketFactory from '@/factories/ticket.factory';
 import TicketInterface from '@/interfaces/ticket.interface';
 import TicketService from '@/services/ticket.service';
 import UserInterface from '@/interfaces/user.interface';
 import UserService from '@/services/user.service';
-import moment from 'moment';
 import {useForm} from 'react-hook-form';
 
 const TicketEditComponent: React.FC<any> = (props) => {
@@ -46,14 +44,10 @@ const TicketEditComponent: React.FC<any> = (props) => {
     };
 
     const updateTicket = (data: any) => {
-        const ticket: TicketFactory = {
-            creator_user_id: 1,
+        const ticket: any = {
             assigned_user_id: data.assigned_user_id,
-            status_id: 1,
             name: data.name,
-            description: data.description,
-            assignment_date: moment().format(),
-            resolution_date: null
+            description: data.description
         };
 
         TicketService.update(props.ticketId, ticket)

@@ -28,43 +28,54 @@ const TicketAddComponent: React.FC<any> = (props) => {
     };
 
     const saveTicket = (data: any) => {
-        const ticket: TicketFactory = {
-            creator_user_id: 1,
-            assigned_user_id: data.assigned_user_id,
-            status_id: 1,
-            name: data.name,
-            description: data.description,
-            assignment_date: moment().format(),
-            resolution_date: null
-        };
+        const userStr = localStorage.getItem("user");
+        let storage: any = null;
 
-        TicketService.create(ticket)
-            .then((response: any) => {
-                const items = {
-                    id: response.data.id,
-                    creator_user_id: response.data.creator_user_id,
-                    assigned_user_id: response.data.description,
-                    status_id: response.data.status_id,
-                    name: response.data.name,
-                    description: response.data.description,
-                    assignment_date: response.data.assignment_date,
-                    resolution_date: response.data.resolution_date,
-                    userCreator: response.data.userCreator,
-                    userAssigned: response.data.userAssigned,
-                    status: response.data.status
-                };
+        if (userStr) {
+            storage = JSON.parse(userStr);
+        }
 
-                const auxTickets = [...props.tickets, items];
+        if (storage && storage.user.id) {
+            const userID: number = storage.user.id;
 
-                props.setTickets(auxTickets);
+            const ticket: TicketFactory = {
+                creator_user_id: userID,
+                assigned_user_id: data.assigned_user_id,
+                status_id: 1,
+                name: data.name,
+                description: data.description,
+                assignment_date: moment().format(),
+                resolution_date: null
+            };
 
-                reset();
+            TicketService.create(ticket)
+                .then((response: any) => {
+                    const items = {
+                        id: response.data.id,
+                        creator_user_id: response.data.creator_user_id,
+                        assigned_user_id: response.data.description,
+                        status_id: response.data.status_id,
+                        name: response.data.name,
+                        description: response.data.description,
+                        assignment_date: response.data.assignment_date,
+                        resolution_date: response.data.resolution_date,
+                        userCreator: response.data.userCreator,
+                        userAssigned: response.data.userAssigned,
+                        status: response.data.status
+                    };
 
-                setShowAdd(false);
-            })
-            .catch((e: Error) => {
-                console.log(e);
-            });
+                    const auxTickets = [...props.tickets, items];
+
+                    props.setTickets(auxTickets);
+
+                    reset();
+
+                    setShowAdd(false);
+                })
+                .catch((e: Error) => {
+                    console.log(e);
+                });
+        }
     };
 
     return (

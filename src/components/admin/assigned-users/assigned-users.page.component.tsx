@@ -10,13 +10,24 @@ const AssignedUsersPageComponent: React.FC = () => {
     }, []);
 
     const retrieveUsers = () => {
-        UserService.getAssignedUsers()
-            .then((response: any) => {
-                setUsers(response.data);
-            })
-            .catch((e: Error) => {
-                console.log(e);
-            });
+        const userStr = localStorage.getItem("user");
+        let storage: any = null;
+
+        if (userStr) {
+            storage = JSON.parse(userStr);
+        }
+
+        if (storage && storage.user.id) {
+            const userID: number = storage.user.id;
+
+            UserService.getAssignedUsers(userID)
+                .then((response: any) => {
+                    setUsers(response.data);
+                })
+                .catch((e: Error) => {
+                    console.log(e);
+                });
+        }
     };
 
     return (
