@@ -67,7 +67,8 @@ const SignInComponent: React.FC<any> = () => {
                                 </div>
                                 {validLogin &&
                                     <div className="mb-6">
-                                        <span className="text-danger"> Las credenciales introducidas son incorrectas.</span>
+                                        <span
+                                            className="text-danger"> Las credenciales introducidas son incorrectas.</span>
                                     </div>
                                 }
                                 <div className="mb-10">
@@ -78,10 +79,64 @@ const SignInComponent: React.FC<any> = () => {
                                     />
                                 </div>
                             </form>
-                            <p className="text-base text-[#adadad]">
-                                ¿Aún no tienes una cuenta? <Link to="/signup"
-                                                                 className="text-primary hover:underline">Regístrate.</Link>
-                            </p>
+                            <section className="pt-2">
+                                <div className="container">
+                                    <div className="mb-2 w-full">
+                                        <div
+                                            className="rounded-lg border border-light bg-white py-4 px-4 shadow-card sm:px-6 md:px-8 md:py-5"
+                                        >
+                                            <h3 className="pb-2 text-xl font-bold text-dark sm:text-2xl">
+                                                Asministrador
+                                            </h3>
+                                            <ul className="flex items-center justify-center">
+                                                <li className="flex items-center">
+                                                    <p className="text-base font-semibold text-black hover:text-primary">
+                                                        Usuario
+                                                    </p>
+                                                    <i className="fas fa-arrow-right-long px-3"/>
+                                                </li>
+                                                <li className="text-base font-semibold text-body-color">admin</li>
+                                            </ul>
+                                            <ul className="flex items-center justify-center">
+                                                <li className="flex items-center">
+                                                    <p className="text-base font-semibold text-black hover:text-primary">
+                                                        Contraseña
+                                                    </p>
+                                                    <i className="fas fa-arrow-right-long px-3"/>
+                                                </li>
+                                                <li className="text-base font-semibold text-body-color">password</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div className="mb-2 w-full">
+                                        <div
+                                            className="rounded-lg border border-light bg-white py-4 px-4 shadow-card sm:px-6 md:px-8 md:py-5"
+                                        >
+                                            <h3 className="pb-2 text-xl font-bold text-dark sm:text-2xl">
+                                                Desarrollador
+                                            </h3>
+                                            <ul className="flex items-center justify-center">
+                                                <li className="flex items-center">
+                                                    <p className="text-base font-semibold text-black hover:text-primary">
+                                                        Usuario
+                                                    </p>
+                                                    <i className="fas fa-arrow-right-long px-3"/>
+                                                </li>
+                                                <li className="text-base font-semibold text-body-color">user1</li>
+                                            </ul>
+                                            <ul className="flex items-center justify-center">
+                                                <li className="flex items-center">
+                                                    <p className="text-base font-semibold text-black hover:text-primary">
+                                                        Contraseña
+                                                    </p>
+                                                    <i className="fas fa-arrow-right-long px-3"/>
+                                                </li>
+                                                <li className="text-base font-semibold text-body-color">password</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
                         </div>
                     </div>
                 </div>
