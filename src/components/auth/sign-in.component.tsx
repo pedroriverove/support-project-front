@@ -20,7 +20,7 @@ const SignInComponent: React.FC<any> = () => {
 
         AuthService.login(auth)
             .then((response: any) => {
-                localStorage.setItem("token", response.data);
+                localStorage.setItem("user", JSON.stringify(response.data));
                 navigate("/");
             })
             .catch((e: Error) => {
