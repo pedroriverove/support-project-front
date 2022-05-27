@@ -1,13 +1,13 @@
 const getAuthHeader = () => {
     const userStr = localStorage.getItem("user");
-    let response:any = null;
+    let storage:any = null;
 
     if (userStr) {
-        response = JSON.parse(userStr);
+        storage = JSON.parse(userStr);
     }
 
-    if (response && response.access_token) {
-        return {"auth": response.access_token};
+    if (storage && storage.access_token) {
+        return {"auth": storage.access_token};
     } else {
         return {"auth": ""};
     }
