@@ -1,6 +1,6 @@
 import http from '@/http-common';
-import UpdateUserFactory from "@/factories/update.user.factory";
-import UserFactory from "@/factories/user.factory";
+import UpdateUserFactory from '@/factories/update.user.factory';
+import UserFactory from '@/factories/user.factory';
 import UserInterface from '@/interfaces/user.interface';
 
 const create = (data: UserFactory) => {

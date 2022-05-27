@@ -3,7 +3,7 @@ import logo from '@/assets/images/logo.svg';
 import {Link} from 'react-router-dom';
 
 const currentTime = new Date();
-const year = currentTime.getFullYear()
+const year = currentTime.getFullYear();
 
 const FooterComponent = () => {
     return (
