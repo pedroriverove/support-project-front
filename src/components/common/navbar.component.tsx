@@ -40,6 +40,8 @@ const NavbarComponent = () => {
                     navigate("/login");
                     console.log(e);
                 });
+        } else {
+            navigate("/login");
         }
     };
 
@@ -106,14 +108,6 @@ const NavbarComponent = () => {
                                                     Usuarios asignados
                                                 </Link>
                                             </li>
-                                            <li>
-                                                <Link
-                                                    to="/profile"
-                                                    className="flex py-2 text-base font-medium text-dark hover:text-primary lg:ml-12 lg:inline-flex"
-                                                >
-                                                    Perfil
-                                                </Link>
-                                            </li>
                                         </ul>
                                     </div>
                                     :
@@ -135,20 +129,18 @@ const NavbarComponent = () => {
                                                     Tickets asignados
                                                 </Link>
                                             </li>
-                                            <li>
-                                                <Link
-                                                    to="/profile"
-                                                    className="flex py-2 text-base font-medium text-dark hover:text-primary lg:ml-12 lg:inline-flex"
-                                                >
-                                                    Perfil
-                                                </Link>
-                                            </li>
                                         </ul>
                                     </div>
                                 }
                             </nav>
                         </div>
                         <div className="hidden justify-end pr-16 sm:flex lg:pr-0">
+                            <Link
+                                to="/profile"
+                                className="py-3 px-7 text-base font-medium text-dark hover:text-primary"
+                            >
+                                Perfil
+                            </Link>
                             <button
                                 onClick={handlelogout}
                                 className="rounded-lg bg-primary py-3 px-7 text-base font-medium text-white hover:bg-opacity-90"
