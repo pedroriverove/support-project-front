@@ -1,6 +1,6 @@
 const getAuthHeader = () => {
     const userStr = localStorage.getItem("user");
-    let storage:any = null;
+    let storage: any = null;
 
     if (userStr) {
         storage = JSON.parse(userStr);

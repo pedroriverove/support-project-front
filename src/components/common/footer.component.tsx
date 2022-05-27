@@ -22,113 +22,127 @@ const FooterComponent = () => {
                     </div>
                     <div className="">
                         <h6 className="uppercase font-semibold mb-4 flex justify-center md:justify-start">
-                            Products
+                            React ^18.1.0
                         </h6>
                         <p className="mb-4">
-                            <Link
-                                to="/"
+                            <a
                                 className="text-gray-600"
+                                target="_blank"
+                                href="https://create-react-app.dev/docs/adding-typescript/"
+                                rel="noreferrer"
                             >
-                                Angular
-                            </Link>
+                                Typescript
+                            </a>
                         </p>
                         <p className="mb-4">
-                            <Link
-                                to="/"
+                            <a
                                 className="text-gray-600"
+                                target="_blank"
+                                href="https://github.com/axios/axios"
+                                rel="noreferrer"
                             >
-                                React
-                            </Link>
+                                Axios
+                            </a>
                         </p>
                         <p className="mb-4">
-                            <Link
-                                to="/"
+                            <a
                                 className="text-gray-600"
+                                target="_blank"
+                                href="https://github.com/react-hook-form/react-hook-form"
+                                rel="noreferrer"
                             >
-                                Vue
-                            </Link>
+                                React hook form
+                            </a>
                         </p>
                         <p>
-                            <Link
-                                to="/"
+                            <a
                                 className="text-gray-600"
+                                target="_blank"
+                                href="https://github.com/gsoft-inc/craco"
+                                rel="noreferrer"
                             >
-                                Laravel
-                            </Link>
+                                Craco
+                            </a>
                         </p>
                     </div>
                     <div className="">
                         <h6 className="uppercase font-semibold mb-4 flex justify-center md:justify-start">
-                            Products
+                            Tailwindcss ^3.0.24
                         </h6>
                         <p className="mb-4">
-                            <Link
-                                to="/"
+                            <a
                                 className="text-gray-600"
+                                target="_blank"
+                                href="https://github.com/TailGrids/tailwind-ui-components"
+                                rel="noreferrer"
                             >
-                                Angular
-                            </Link>
+                                Tailgrids
+                            </a>
                         </p>
                         <p className="mb-4">
-                            <Link
-                                to="/"
+                            <a
                                 className="text-gray-600"
+                                target="_blank"
+                                href="https://github.com/FortAwesome/Font-Awesome"
+                                rel="noreferrer"
                             >
-                                React
-                            </Link>
+                                Fortawesome
+                            </a>
                         </p>
                         <p className="mb-4">
-                            <Link
-                                to="/"
+                            <a
                                 className="text-gray-600"
+                                target="_blank"
+                                href="https://github.com/postcss/postcss"
+                                rel="noreferrer"
                             >
-                                Vue
-                            </Link>
-                        </p>
-                        <p>
-                            <Link
-                                to="/"
-                                className="text-gray-600"
-                            >
-                                Laravel
-                            </Link>
+                                Postcss
+                            </a>
                         </p>
                     </div>
                     <div className="">
                         <h6 className="uppercase font-semibold mb-4 flex justify-center md:justify-start">
-                            Products
+                            Express ^4.18.1
                         </h6>
                         <p className="mb-4">
-                            <Link
-                                to="/"
+                            <a
                                 className="text-gray-600"
+                                target="_blank"
+                                href="https://www.typescriptlang.org/"
+                                rel="noreferrer"
                             >
-                                Angular
-                            </Link>
+                                Typescript
+                            </a>
                         </p>
                         <p className="mb-4">
-                            <Link
-                                to="/"
+                            <a
                                 className="text-gray-600"
+                                target="_blank"
+                                href="https://github.com/typeorm/typeorm"
+                                rel="noreferrer"
                             >
-                                React
-                            </Link>
+                                Typeorm
+                            </a>
                         </p>
                         <p className="mb-4">
-                            <Link
-                                to="/"
+                            <a
                                 className="text-gray-600"
+                                target="_blank"
+                                href="https://github.com/remy/nodemon"
+                                rel="noreferrer"
                             >
-                                Vue
-                            </Link>
+                                Nodemon
+                            </a>
                         </p>
-                        <p>
-                            <Link
-                                to="/"
+                        <p className="mb-4">
+                            <a
                                 className="text-gray-600"
+                                target="_blank"
+                                href="https://github.com/auth0/node-jsonwebtoken"
+                                rel="noreferrer"
                             >
-                                Laravel
-                            </Link>
+                                Json web token
+                            </a>
                         </p>
                     </div>
                 </div>

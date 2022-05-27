@@ -112,7 +112,8 @@ const TicketPageComponent = () => {
                                 ))}
                                 {tickets.length === 0 &&
                                     <tr>
-                                        <td colSpan={6} className="border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-center text-base font-medium text-dark">
+                                        <td colSpan={6}
+                                            className="border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-center text-base font-medium text-dark">
                                             No se encontraron resultados.
                                         </td>
                                     </tr>
