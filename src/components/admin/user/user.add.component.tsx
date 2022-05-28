@@ -149,7 +149,7 @@ const UserAddComponent: React.FC<any> = (props) => {
                                         </label>
                                         <input
                                             id="username"
-                                            placeholder="Username"
+                                            placeholder="Usuario"
                                             type="text"
                                             {...register("username", {
                                                 required: true,
@@ -159,7 +159,7 @@ const UserAddComponent: React.FC<any> = (props) => {
                                         />
                                         {errors.username?.type === 'required' &&
                                             <span className="text-danger"> Este campo es obligatorio</span>}
-                                        {errors.email && errors.email.type === "validate" &&
+                                        {errors.username && errors.username.type === "validate" &&
                                             <span className="text-danger"> Este usuario ya existe</span>}
                                     </div>
                                 </div>
@@ -183,7 +183,8 @@ const UserAddComponent: React.FC<any> = (props) => {
                                             })}
                                             className="w-full rounded-lg border-[1.5px] border-form-stroke py-3 px-5 font-medium text-body-color placeholder-body-color outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]"
                                         />
-                                        {errors.email && <span className="text-danger"> {errors.email.message}</span>}
+                                        {errors.email?.type === 'required' &&
+                                            <span className="text-danger"> Este campo es obligatorio</span>}
                                         {errors.email && errors.email.type === "validate" &&
                                             <span className="text-danger"> Esta dirección de correo electrónico ya existe</span>}
                                     </div>

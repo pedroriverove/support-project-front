@@ -44,16 +44,6 @@ const FooterComponent = () => {
                                 Axios
                             </a>
                         </p>
-                        <p className="mb-4">
-                            <a
-                                className="text-gray-600"
-                                target="_blank"
-                                href="https://github.com/react-hook-form/react-hook-form"
-                                rel="noreferrer"
-                            >
-                                React hook form
-                            </a>
-                        </p>
                         <p>
                             <a
                                 className="text-gray-600"
@@ -62,6 +52,16 @@ const FooterComponent = () => {
                                 rel="noreferrer"
                             >
                                 Craco
+                            </a>
+                        </p>
+                        <p className="mb-4">
+                            <a
+                                className="text-gray-600"
+                                target="_blank"
+                                href="https://github.com/react-hook-form/react-hook-form"
+                                rel="noreferrer"
+                            >
+                                React Hook Form
                             </a>
                         </p>
                     </div>
@@ -112,6 +112,16 @@ const FooterComponent = () => {
                                 rel="noreferrer"
                             >
                                 Typescript
+                            </a>
+                        </p>
+                        <p className="mb-4">
+                            <a
+                                className="text-gray-600"
+                                target="_blank"
+                                href="https://github.com/sidorares/node-mysql2"
+                                rel="noreferrer"
+                            >
+                                MySQL2
                             </a>
                         </p>
                         <p className="mb-4">

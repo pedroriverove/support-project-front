@@ -1,4 +1,4 @@
-#### Paquete
+#### Packages
 - npx create-react-app support-project-front --template typescript
 - npm install react-router-dom@6
 - npm install tailwindcss postcss autoprefixer -D
@@ -9,5 +9,6 @@
 - npm install @fortawesome/fontawesome-free
 - npm install axios
 
-#### Comandos
+#### Commands
+- npm install
 - npm start
