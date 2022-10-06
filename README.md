@@ -1,14 +1,14 @@
-# Support Project Front
+# Support project frontend
 
 ### Used technology:
 
-- React [React](https://reactjs.org/)
-- TypeScript [TypeScript](https://www.typescriptlang.org/)
-- Tailwindcss [Tailwindcss](https://tailwindcss.com/)
-- Tailgrids [Tailgrids](https://tailgrids.com/)
-- Axios [Axios](https://axios-http.com/)
-- Craco [Craco](https://www.gsoft.com/en/)
-- React Hook Form [React Hook Form](https://react-hook-form.com/)
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwindcss](https://tailwindcss.com/)
+- [Tailgrids](https://tailgrids.com/)
+- [Axios](https://axios-http.com/)
+- [Craco](https://www.gsoft.com/en/)
+- [React Hook Form](https://react-hook-form.com/)
 
 ## Requirements
 
