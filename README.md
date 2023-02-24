@@ -1,6 +1,8 @@
-# Support project frontend
+# React | TypeScript | Tailwindcss
 
-### Used technology:
+Frontend project with JWT authentication to create, modify and delete tickets assigned to different developers.
+
+## Used technology
 
 - [React](https://reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
